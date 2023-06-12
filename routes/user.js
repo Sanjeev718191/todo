@@ -60,8 +60,8 @@ router.post('/register', async (req, res, next) => {
             res.status(200).json({
                 success : true,
                 token : token
-            })
-        })
+            });
+        });
 
     } catch(err){
         console.log(err);
@@ -78,7 +78,7 @@ router.post('/login', async(req, res, next) => {
             email : email
         });
         if(!user){
-            res.status(400).json({
+            return res.status(400).json({
                 success : false,
                 msg : 'User not exists register to continue.'
             });
